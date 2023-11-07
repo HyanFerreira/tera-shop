@@ -12,20 +12,85 @@
 
 <body>
     <nav class="navigation">
-        <img src="./assets/img/logotipo.svg" alt="logo" class="brand-logo">
-    </nav>
-    <div class="navigation-items">
-        <div class="search">
-            <input type="text" class="search-box" placeholder="Pesquisar">
-            <button class="search-btn">Buscar</button>
-            <a href="/">
-                <img src="./assets/img/account.svg" alt="profile">
-            </a>
-            <a href="/">
-                <img src="./assets/img/shopping_cart.svg" alt="shopping_cart">
-            </a>
+        <div class="nav-higher">
+            <div class="hamburguer">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="logo">
+                <a href="/">
+                    <img src="./assets/img/logotipo.svg" alt="logo" class="brand-logo">
+                </a>
+            </div>
+            <div class="navigation-items">
+                <div class="search">
+                    <input type="text" class="search-box" placeholder="Pesquisar">
+                    <button class="search-btn">
+                        <img src="./assets/img/search.svg" alt="">
+                    </button>
+                </div>
+                <div class="navigation-items-links">
+                    <a href="/">
+                        <img src="./assets/img/account.svg" alt="profile">
+                    </a>
+                    <a href="/">
+                        <img src="./assets/img/shopping_cart.svg" alt="shopping_cart">
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
+        <div class="nav-bottom">
+            <ul class="nav-ul-items">
+                <li class="li-item">
+                    <a href="/">Hardwares</a>
+                </li>
+                <li class="li-item">
+                    <a href="/">Hardwares</a>
+                </li>
+                <li class="li-item">
+                    <a href="/">Hardwares</a>
+                </li>
+                <li class="li-item">
+                    <a href="/">Hardwares</a>
+                </li>
+                <li class="li-item">
+                    <a href="/">Hardwares</a>
+                </li>
+                <li class="li-item">
+                    <a href="/">Hardwares</a>
+                </li>
+                <li class="li-item">
+                    <a href="/">Hardwares</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <header class="header-index">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <div class="banner-slide">
+                    <img src="./assets/img/banners/banner-1.png" alt="">
+                </div>
+                <div class="banner-slide">
+                    <img src="./assets/img/banners/banner-2.png" alt="">
+                </div>
+                <div class="banner-slide">
+                    <img src="./assets/img/banners/banner-3.png" alt="">
+                </div>
+                <div class="banner-slide">
+                    <img src="./assets/img/banners/banner-4.png" alt="">
+                </div>
+            </div>
+            <button id="prevBtn">
+                <img src="./assets/img/prev.svg" alt="">
+            </button>
+            <button id="nextBtn">
+                <img src="./assets/img/next.svg" alt="">
+            </button>
+        </div>
+    </header>
+    <script src="./assets/js/carousel.js"></script>
 </body>
 
 </html>
