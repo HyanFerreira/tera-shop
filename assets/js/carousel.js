@@ -22,33 +22,44 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var bannerSlides = updateBannerSlides();
 
+
+
   function autoAdvanceSlide() {
     nextBtn.click();
   }
 
-  var intervalId = setInterval(autoAdvanceSlide, 5000);
+  var intervalId;
+
+  function startAutoAdvance() {
+    intervalId = setTimeout(function () {
+      autoAdvanceSlide();
+      startAutoAdvance();
+    }, 5000);
+  }
+
+  startAutoAdvance();
 
   carouselSlide.addEventListener('mouseenter', function () {
-    clearInterval(intervalId);
+    clearTimeout(intervalId);
   });
 
   carouselSlide.addEventListener('mouseleave', function () {
-    intervalId = setInterval(autoAdvanceSlide, 5000);
+    startAutoAdvance();
   });
 
   prevBtn.addEventListener('mouseenter', function () {
-    clearInterval(intervalId);
+    clearTimeout(intervalId);
   });
 
   prevBtn.addEventListener('mouseleave', function () {
-    intervalId = setInterval(autoAdvanceSlide, 5000);
+    startAutoAdvance();
   });
 
   nextBtn.addEventListener('mouseenter', function () {
-    clearInterval(intervalId);
+    clearTimeout(intervalId);
   });
 
   nextBtn.addEventListener('mouseleave', function () {
-    intervalId = setInterval(autoAdvanceSlide, 5000);
+    startAutoAdvance();
   });
 });
