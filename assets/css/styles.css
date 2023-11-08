@@ -141,10 +141,11 @@
 .carousel-slide {
     display: flex;
     width: 400%;
-    /* 300% para 3 imagens (100% por imagem) */
-    transition: transform 0.5s;
+    transition: all 900ms;
+    /* Adicione a transição aqui */
     position: relative;
 }
+
 
 .carousel-slide .banner-slide img {
     width: 100%;
@@ -162,13 +163,14 @@
 #nextBtn {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.0);
-    border: 1px solid white;
+    border: 0;
     padding: 5px;
-    border-radius: 50%;
     position: absolute;
     z-index: 10;
     top: 50%;
     transform: translate(0%, -50%);
+    height: 100%;
+    width: 100px;
 }
 
 #prevBtn img,
@@ -182,9 +184,9 @@
 } */
 
 #prevBtn {
-    left: 50px;
+    left: 0;
 }
 
 #nextBtn {
-    right: 50px;
+    right: 0;
 }
