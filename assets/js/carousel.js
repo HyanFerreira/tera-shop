@@ -64,6 +64,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+
+
 // document.addEventListener('DOMContentLoaded', function () {
 //   var carouselSlide = document.querySelector('.carousel-slide');
 //   var prevBtn = document.getElementById('prevBtn');
