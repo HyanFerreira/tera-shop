@@ -7,7 +7,52 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* ::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #33415a;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #1b2133;
+} */
+
 /* navigation */
+
+.aside-navigation {
+    position: fixed;
+    width: 300px;
+    height: 100vh;
+    background-color: #33415A;
+    z-index: 99999;
+    transform: translateX(-100%);
+    transition: all 900ms;
+}
+
+.overlow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 9999;
+}
+
+.overlow.active {
+    display: block;
+}
+
+body.active {
+    overflow: hidden;
+}
+
+.aside-navigation.active {
+    transform: translateX(0);
+}
 
 .navigation {
     width: 100%;
@@ -40,6 +85,12 @@
     border: 0;
     border-radius: 10px;
     font-size: 1rem;
+    background-color: #33415A;
+    color: white;
+}
+
+.search-box::placeholder {
+    color: #00FCF8;
 }
 
 .search-btn {
@@ -55,7 +106,7 @@
 }
 
 .search-btn img {
-    width: 25px;
+    width: 20px;
 }
 
 .search-box:focus {
@@ -72,7 +123,25 @@
 }
 
 .hamburguer {
+    transition: all 900ms;
     cursor: pointer;
+    z-index: 9999999;
+}
+
+.hamburguer.active {
+    transform: translateX(120px);
+}
+
+.hamburguer.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburguer.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburguer.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 .bar {
@@ -81,7 +150,7 @@
     height: 3px;
     border-radius: 3px;
     margin: 5px auto;
-    background-color: #ffffff;
+    background-color: #00FCF8;
     transition: all 0.3s ease-in-out;
 }
 
@@ -118,7 +187,7 @@
     height: 100%;
     display: flex;
     align-items: center;
-    color: #ffffff;
+    color: #00FCF8;
 }
 
 /* header */
@@ -197,4 +266,11 @@
 
 #nextBtn {
     right: 0;
+}
+
+/* main index */
+
+.main-index {
+    width: 100%;
+    height: 1000px;
 }
