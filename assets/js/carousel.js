@@ -207,3 +207,4 @@ document.addEventListener('DOMContentLoaded', function () {
 //     intervalId = setInterval(autoAdvanceSlide, 5000);
 //   });
 // });
+
