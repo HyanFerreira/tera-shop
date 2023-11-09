@@ -23,8 +23,9 @@
 
 .aside-navigation {
     position: fixed;
-    width: 300px;
-    height: 100vh;
+    width: 20%;
+    min-width: 300px;
+    height: 100%;
     background-color: #33415A;
     z-index: 99999;
     transform: translateX(-100%);
@@ -125,10 +126,9 @@ body.active {
 .hamburguer {
     transition: all 900ms;
     cursor: pointer;
-    z-index: 9999999;
 }
 
-.hamburguer.active {
+/* .hamburguer.active {
     transform: translateX(120px);
 }
 
@@ -142,7 +142,7 @@ body.active {
 
 .hamburguer.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
-}
+} */
 
 .bar {
     display: block;
