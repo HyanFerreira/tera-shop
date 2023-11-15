@@ -319,7 +319,8 @@ body.active {
 }
 
 .content-product-limite {
-    width: 1490px;
+    /* width: 1490px; */
+    width: 1192px;
     overflow: hidden;
     padding: 0 15px;
 }

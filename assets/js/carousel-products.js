@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // Define o tamanho de cada card e o espaçamento entre eles
   let cardWidth = 268; //elemento chave, aqui pode ser inserido o tamanho desejado do card
   let cardSpacing = 30; //elemento chave, insia aqui o espaçamento entre os cards
-  let cardPositionNext = (cardWidth + cardSpacing) * 4;
-  let cardPositionPrevious = (cardWidth + cardSpacing) * 5;
+  let cardPositionNext = (cardWidth + cardSpacing) * 3;
+  let cardPositionPrevious = (cardWidth + cardSpacing) * 4; // se são 4 imagens a serem exibidas, subtraia 1 do cardPositionNext
 
   // Calcula o deslocamento com base no número de cards
   let numCards = document.querySelectorAll('.product-card').length;
