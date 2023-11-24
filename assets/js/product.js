@@ -5,7 +5,8 @@ const productsList = [
     description: 'Cadeira gamer reclinável em 120° com apoio retrátil para os pés, apoio de lombar e apoio de pescoço reguláveis. Possui características ergonomicamente amigáveis que permitem longas sessões de jogos online ou trabalho, diminuindo o desgaste físico e o cansaço.',
     price_original: '899,99',
     price: '699,99',
-    img: './assets/img/products/product_teste.png',
+    img: './assets/img/products/cadeira_gamer.png',
+    category: 'Cadeira Gamer',
   },
   {
     id: 2,
@@ -13,7 +14,7 @@ const productsList = [
     description: 'O Gabinete H7 Flow tem painéis frontais e superiores perfurados, que permitem uma excelente circulação de ar e refrigeração do seu sistema. Você pode instalar até seis ventoinhas ou radiadores de até 360 mm na frente e no topo do gabinete, garantindo uma temperatura ideal para o seu PC. O Gabinete H7 Flow já vem com duas ventoinhas silenciosas da série F da NZXT, que proporcionam um fluxo de ar otimizado e um baixo nível de ruído.',
     price_original: '1.329,99',
     price: '1.109,99',
-    img: './assets/img/products/product_teste.png',
+    img: './assets/img/products/gabinete_gamer.png',
   },
   {
     id: 3,
@@ -21,7 +22,7 @@ const productsList = [
     description: 'Placa Mãe Asus PRIME H510M-A Recursos: • Intel LGA 1200 soquete: Pronto para 11 th e 10 th Gen Intel Processadores • Resfriamento abrangente: dissipador de calor VRM, dissipador de calor M.2, dissipador de calor PCH e Fan Xpert 2+ • Conectividade ultrarrápida: PCIe 4.0, slot M.2 de 32 Gbps, Ethernet Intel 1 Gb e USB 3.2 Gen 1 • Aura Sync RGB: conectores Gen 2 endereçáveis ??integrados para tiras de LED RGB, facilmente sincronizados com hardware compatível com Aura Sync.',
     price_original: '999,99',
     price: '799,99',
-    img: './assets/img/products/product_teste.png',
+    img: './assets/img/products/placa_mae.png',
   },
   {
     id: 4,
@@ -29,7 +30,7 @@ const productsList = [
     description: '- Formato: M.2 2280 - Interface: PCIe 4.0 x4 NVMe - Leitura sequencial: 3500MB/s - Gravação sequencial: 2100MB/s - Risistência (Total de bytes gravados): 320TB - Temperatura de armazenamento: -40ºC a 85ºC - Temperatura de operação: 0ºC a 70ºC - Vibração em operação: 2.17G (7-800HZ) - Vibração fora de operação: 20G (20-1000Hz) - MTBF: 1.500.000 horas - Dimensões: 22 x 80 x 2,2mm - Peso: 7g - Garantia: 3 anos.',
     price_original: '219,49',
     price: '179,99',
-    img: './assets/img/products/product_teste.png',
+    img: './assets/img/products/ssd500gb.png',
   },
   {
     id: 5,
@@ -53,6 +54,6 @@ const productsList = [
     description: 'O P300 é a próxima geração de SSD PCIe Gen3 x4 NVMe intermediário da Patriot, entrando no mercado e oferecendo velocidades de transferência e IOPs 25% maiores do que as soluções PCIe 3 x2 padrão. O formato compacto M.2 foi projetado para fácil instalação, compatível com qualquer PC ou laptop, enquanto seu baixo consumo de energia auxilia a prolongar a vida útil do driver, garantindo melhora no tempo de inicialização, carregamento e transferência em relação às unidades de disco rígido tradicionais. O firmware avançado do P300 oferece tecnologia ECC e proteção ao encaminhar dados de ponta a ponta, garantindo a integridade dos dados durante a vida útil da unidade. Recursos avançados de nivelamento de desgaste e gerenciamento térmico prolongam ao máximo a sua durabilidade. Aumente o desempenho do seu computador com agilidade no carregamento de aplicativos para uma experiência geral e produtiva, enquanto transfere arquivos pesados sem tempo de atraso. A Patriot oferece um dos SSDs com melhor custo-benefício do mercado.',
     price_original: '919,49',
     price: '799,99',
-    img: './assets/img/products/product_teste.png',
+    img: './assets/img/products/ssd2tb.png',
   },
 ];
