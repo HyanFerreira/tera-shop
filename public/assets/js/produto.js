@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function calcularTempoRestante() {
     // Data alvo: 24 de novembro de 2023 às 23h59
-    const dataAlvo = new Date('2023-11-23T23:59:59');
+    const dataAlvo = new Date('2024-11-23T23:59:59');
 
     // Data atual
     const agora = new Date();
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const elementoTempoRestante = document.getElementById('timer-blackfriday');
 
     // Atualiza o conteúdo do elemento HTML
-    elementoTempoRestante.textContent = `0${tempoRestante.dias}D ${tempoRestante.horas}h ${tempoRestante.minutos}min ${tempoRestante.segundos}s`;
+    elementoTempoRestante.textContent = `${tempoRestante.dias}D ${tempoRestante.horas}h ${tempoRestante.minutos}min ${tempoRestante.segundos}s`;
   }
 
   // Atualiza o tempo restante a cada segundo
