@@ -116,7 +116,25 @@ body.active {
 
 .favorite,
 .shop {
+    position: relative;
     cursor: pointer;
+}
+
+.cart-total {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -20%;
+    right: -20%;
+    background-color: rgb(28, 34, 51);
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00FCF8;
+    display: none;
 }
 
 .navigation-items-links {
@@ -193,6 +211,22 @@ body.active {
     display: flex;
     align-items: center;
     color: #00FCF8;
+}
+
+.aside-cart {
+    position: fixed;
+    right: 0;
+    width: 30%;
+    min-width: 300px;
+    height: 100%;
+    background-color: #33415A;
+    z-index: 99999;
+    transform: translateX(100%);
+    transition: all 900ms;
+}
+
+.aside-cart.active {
+    transform: translateX(0);
 }
 
 /* header */
