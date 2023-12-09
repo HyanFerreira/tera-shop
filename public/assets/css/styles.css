@@ -114,6 +114,11 @@ body.active {
     outline: none;
 }
 
+.favorite,
+.shop {
+    cursor: pointer;
+}
+
 .navigation-items-links {
     display: flex;
     gap: 10px;
@@ -512,7 +517,7 @@ body.active {
 }
 
 .hr-line {
-    width: 90%;
+    width: 96%;
     height: 2px;
     background-color: #ffffff;
     border-radius: 10px;
