@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
   function cloneProducts() {
     const c = (el) => document.querySelector(el);
-    const cs = (el) => document.querySelectorAll(el);
+
+    let cartItems = {};
 
     productsList.map((item, index) => {
       let productList = c('.models-product').cloneNode(true);
@@ -15,16 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
         '.product-price-original span',
       ).innerHTML = `R$ ${item.price_original}`;
 
-      // productList
-      //   .querySelector('.product-card')
-      //   .addEventListener('click', (e) => {
-      //     c('.product-selected-img img').src = item.img;
-      //     c('.product-selected-name span').innerHTML = item.name;
-      //     c('.product-selected-price span').innerHTML = `R$ ${item.price}`;
-      //     c(
-      //       '.product-selected-price-original span',
-      //     ).innerHTML = `R$ ${item.price_original}`;
-      //   });
+      productList
+        .querySelector('.product-addCart')
+        .addEventListener('click', () => {
+          addToCart(item.name, item.price, item.img);
+        });
 
       productList
         .querySelector('.product-card')
@@ -32,6 +28,57 @@ document.addEventListener('DOMContentLoaded', function () {
 
       c('.main-index .content-product').append(productList);
     });
+
+    function addToCart(productName, productPrice, productImg) {
+      // Verifica se o produto já está no carrinho
+      if (cartItems[productName]) {
+        // Se sim, incrementa a quantidade
+        cartItems[productName].quantity += 1;
+        updateCartItem(productName);
+      } else {
+        // Se não, adiciona o produto ao carrinho
+        cartItems[productName] = { quantity: 1, price: productPrice };
+        // Cria o elemento no carrinho
+        createCartItem(productName, productPrice, productImg);
+      }
+
+      // Atualiza a exibição no carrinho
+      updateCartView();
+    }
+
+    function createCartItem(productName, productPrice, productImg) {
+      const cartItem = document.createElement('div');
+      cartItem.classList.add('cart-item');
+      cartItem.dataset.productName = productName;
+
+      cartItem.innerHTML = `
+        <img src="${productImg}" alt="">
+        <span>${productName}</span>
+        <span class="quantity">Quantidade: 1</span>
+        <span>Preço: R$ ${productPrice}</span>
+      `;
+
+      c('.aside-cart').appendChild(cartItem);
+
+      updateCartView();
+    }
+
+    function updateCartItem(productName) {
+      const cartItem = c(`.cart-item[data-product-name="${productName}"]`);
+      const quantityElement = cartItem.querySelector('.quantity');
+      cartItem.dataset.quantity += 1;
+      quantityElement.textContent = `Quantidade: ${cartItems[productName].quantity}`;
+    }
+
+    function updateCartView() {
+      // Atualiza a exibição do número total de produtos no carrinho
+      const totalQuantity = Object.values(cartItems).reduce(
+        (total, item) => total + item.quantity,
+        0,
+      );
+      c('.cart-total').innerText = `${totalQuantity}`;
+      c('.cart-total').style.display = 'flex';
+    }
   }
   cloneProducts();
 
