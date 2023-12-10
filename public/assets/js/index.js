@@ -37,19 +37,61 @@ document.addEventListener('DOMContentLoaded', function () {
         updateCartItem(productName);
       } else {
         // Se não, adiciona o produto ao carrinho
-        cartItems[productName] = { quantity: 1, price: productPrice };
+        cartItems[productName] = {
+          quantity: 1,
+          price: productPrice,
+          img: productImg,
+        };
         // Cria o elemento no carrinho
         createCartItem(productName, productPrice, productImg);
       }
 
       // Atualiza a exibição no carrinho
       updateCartView();
+
+      // Salva no localStorage
+      saveCartToLocalStorage();
     }
+
+    // Função para salvar o carrinho no localStorage
+    function saveCartToLocalStorage() {
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }
+
+    // Função para carregar o carrinho do localStorage ao carregar a página
+    function loadCartFromLocalStorage() {
+      const savedCartItems = localStorage.getItem('cartItems');
+      if (savedCartItems) {
+        cartItems = JSON.parse(savedCartItems);
+
+        // Adicionar os itens do localStorage à exibição do carrinho
+        Object.keys(cartItems).forEach((productName) => {
+          createCartItem(
+            productName,
+            cartItems[productName].price,
+            cartItems[productName].img,
+          );
+        });
+
+        // Atualizar a exibição do carrinho após o carregamento
+        updateCartView();
+      }
+    }
+
+    // Chame a função para carregar o carrinho do localStorage ao carregar a página
+    loadCartFromLocalStorage();
 
     function createCartItem(productName, productPrice, productImg) {
       const cartItem = document.createElement('div');
       cartItem.classList.add('cart-item');
       cartItem.dataset.productName = productName;
+
+      // Verifica se o produto já está no localStorage e carrega a quantidade
+      if (cartItems[productName]) {
+        cartItem.dataset.quantity = cartItems[productName].quantity;
+      } else {
+        cartItem.dataset.quantity = 1;
+      }
 
       cartItem.innerHTML = `
         <img class="aside-cart-img" src="${productImg}" alt="">
@@ -59,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <span class="aside-cart-price">Preço: R$ ${productPrice}</span>
               <div class="aside-cart-add-remove">
                 <div class="remove">-</div>
-                <span class="quantity">1</span>
+                <span class="quantity">${cartItem.dataset.quantity}</span>
                 <div class="add">+</div>
               </div>
           </div>
@@ -74,6 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
         cartItems[productName].quantity += 1;
         quantityElement.textContent = `${cartItems[productName].quantity}`;
         updateCartView();
+        saveCartToLocalStorage();
       });
 
       removeBtn.addEventListener('click', () => {
@@ -82,18 +125,19 @@ document.addEventListener('DOMContentLoaded', function () {
           quantityElement.textContent = `${cartItems[productName].quantity}`;
         } else {
           delete cartItems[productName];
-          c('.cart-item[data-product-name="' + productName + '"]').remove();
+          cartItem.remove();
         }
         updateCartView();
+        saveCartToLocalStorage();
       });
 
-      c('.aside-cart').appendChild(cartItem);
+      document.querySelector('.aside-cart').appendChild(cartItem);
 
       updateCartView();
     }
 
     function updateTotalPrice() {
-      const totalPriceElement = c('.total-price-cart');
+      const totalPriceElement = document.querySelector('.total-price-cart');
 
       // Calcula o preço total somando os preços de todos os itens no carrinho
       const totalPrice = Object.values(cartItems).reduce(
@@ -119,7 +163,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateCartItem(productName) {
-      const cartItem = c(`.cart-item[data-product-name="${productName}"]`);
+      const cartItem = document.querySelector(
+        `.cart-item[data-product-name="${productName}"]`,
+      );
       const quantityElement = cartItem.querySelector('.quantity');
       cartItem.dataset.quantity += 1;
       quantityElement.textContent = `${cartItems[productName].quantity}`;
@@ -131,12 +177,12 @@ document.addEventListener('DOMContentLoaded', function () {
         (total, item) => total + item.quantity,
         0,
       );
-      c('.cart-total').innerText = `${totalQuantity}`;
-      c('.cart-total').style.display = 'flex';
+      document.querySelector('.cart-total').innerText = `${totalQuantity}`;
+      document.querySelector('.cart-total').style.display = 'flex';
       if (totalQuantity >= 1) {
-        c('.text-cart').style.display = 'none';
+        document.querySelector('.text-cart').style.display = 'none';
       } else {
-        c('.text-cart').style.display = 'flex';
+        document.querySelector('.text-cart').style.display = 'flex';
       }
 
       updateTotalPrice();

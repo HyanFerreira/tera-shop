@@ -30,7 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector(
           '.product-selected-price-original span',
         ).innerHTML = `R$ ${selectedProduct.price_original}`;
-        document.querySelector('.product-selected-description span').innerHTML = selectedProduct.description;
+        document.querySelector('.product-selected-description span').innerHTML =
+          selectedProduct.description;
       } else {
         console.error('Produto não encontrado.');
       }
@@ -51,7 +52,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector(
           '.product-selected-price-original span',
         ).innerHTML = `R$ ${selectedProduct.price_original}`;
-        document.querySelector('.product-selected-description span').innerHTML = selectedProduct.description;
+        document.querySelector('.product-selected-description span').innerHTML =
+          selectedProduct.description;
       } else {
         console.error('Nenhum produto selecionado.');
       }
