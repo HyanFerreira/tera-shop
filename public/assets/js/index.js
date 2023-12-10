@@ -133,6 +133,11 @@ document.addEventListener('DOMContentLoaded', function () {
       );
       c('.cart-total').innerText = `${totalQuantity}`;
       c('.cart-total').style.display = 'flex';
+      if (totalQuantity >= 1) {
+        c('.text-cart').style.display = 'none';
+      } else {
+        c('.text-cart').style.display = 'flex';
+      }
 
       updateTotalPrice();
     }
