@@ -103,8 +103,15 @@ document.addEventListener('DOMContentLoaded', function () {
         0,
       );
 
-      // Exibe o preço total no elemento correspondente
-      totalPriceElement.innerText = `Total: R$ ${totalPrice.toFixed(2)}`;
+      // Formata o preço total com separadores de milhar e duas casas decimais
+      const formattedTotalPrice = totalPrice.toLocaleString('pt-BR', {
+        style: 'decimal',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+
+      // Exibe o preço total formatado no elemento correspondente
+      totalPriceElement.innerText = `Total: R$ ${formattedTotalPrice}`;
 
       // Exibe ou oculta o elemento do preço total com base na existência de itens no carrinho
       totalPriceElement.style.display =
