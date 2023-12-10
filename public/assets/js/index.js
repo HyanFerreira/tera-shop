@@ -52,22 +52,77 @@ document.addEventListener('DOMContentLoaded', function () {
       cartItem.dataset.productName = productName;
 
       cartItem.innerHTML = `
-        <img src="${productImg}" alt="">
-        <span>${productName}</span>
-        <span class="quantity">Quantidade: 1</span>
-        <span>Preço: R$ ${productPrice}</span>
+        <img class="aside-cart-img" src="${productImg}" alt="">
+        <div class="aside-cart-name-price">
+            <span class="aside-cart-name">${productName}</span>
+            <div class="aside-cart-qnt-price">
+              <span class="aside-cart-price">Preço: R$ ${productPrice}</span>
+              <div class="aside-cart-add-remove">
+                <div class="remove">-</div>
+                <span class="quantity">1</span>
+                <div class="add">+</div>
+              </div>
+          </div>
+        </div>
       `;
+
+      const addBtn = cartItem.querySelector('.add');
+      const removeBtn = cartItem.querySelector('.remove');
+      const quantityElement = cartItem.querySelector('.quantity');
+
+      addBtn.addEventListener('click', () => {
+        cartItems[productName].quantity += 1;
+        quantityElement.textContent = `${cartItems[productName].quantity}`;
+        updateCartView();
+      });
+
+      removeBtn.addEventListener('click', () => {
+        if (cartItems[productName].quantity > 1) {
+          cartItems[productName].quantity -= 1;
+          quantityElement.textContent = `${cartItems[productName].quantity}`;
+        } else {
+          delete cartItems[productName];
+          c('.cart-item[data-product-name="' + productName + '"]').remove();
+        }
+        updateCartView();
+      });
 
       c('.aside-cart').appendChild(cartItem);
 
       updateCartView();
     }
 
+    function updateTotalPrice() {
+      const totalPriceElement = c('.total-price-cart');
+
+      // Calcula o preço total somando os preços de todos os itens no carrinho
+      const totalPrice = Object.values(cartItems).reduce(
+        (total, item) =>
+          total +
+          item.quantity * Number(item.price.replace('.', '').replace(',', '.')),
+        0,
+      );
+
+      // Formata o preço total com separadores de milhar e duas casas decimais
+      const formattedTotalPrice = totalPrice.toLocaleString('pt-BR', {
+        style: 'decimal',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+
+      // Exibe o preço total formatado no elemento correspondente
+      totalPriceElement.innerText = `Total: R$ ${formattedTotalPrice}`;
+
+      // Exibe ou oculta o elemento do preço total com base na existência de itens no carrinho
+      totalPriceElement.style.display =
+        Object.keys(cartItems).length > 0 ? 'block' : 'flex';
+    }
+
     function updateCartItem(productName) {
       const cartItem = c(`.cart-item[data-product-name="${productName}"]`);
       const quantityElement = cartItem.querySelector('.quantity');
       cartItem.dataset.quantity += 1;
-      quantityElement.textContent = `Quantidade: ${cartItems[productName].quantity}`;
+      quantityElement.textContent = `${cartItems[productName].quantity}`;
     }
 
     function updateCartView() {
@@ -78,6 +133,8 @@ document.addEventListener('DOMContentLoaded', function () {
       );
       c('.cart-total').innerText = `${totalQuantity}`;
       c('.cart-total').style.display = 'flex';
+
+      updateTotalPrice();
     }
   }
   cloneProducts();
