@@ -217,6 +217,7 @@ body.active {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #33415A;
 }
 
 /* .hamburguer.active {
