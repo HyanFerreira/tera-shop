@@ -8,21 +8,21 @@
 }
 
 .rodape {
-    background-image: linear-gradient(#33415A, #10131f);
+    background-image: linear-gradient(#33415A, #05060a);
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
     bottom: 0;
     left: 0;
     width: 100%;
 }
 
 .icones {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .icones a {
-    margin: 0 10px;
+    margin: 0 20px;
     text-decoration: none;
     display: inline-block;
 }
@@ -167,11 +167,19 @@ body.active {
 
 .navigation-items-links {
     display: flex;
+    justify-content: center;
     gap: 10px;
 }
 
+.navigation-items-links a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .navigation-items-links img {
-    width: 40px;
+    width: 150px;
+    margin-top: 20px;
 }
 
 .hamburguer {
