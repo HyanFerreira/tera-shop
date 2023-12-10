@@ -180,11 +180,43 @@ body.active {
 .navigation-items-links img {
     width: 150px;
     margin-top: 20px;
+    border-radius: 50%;
 }
 
 .hamburguer {
     transition: all 900ms;
     cursor: pointer;
+}
+
+.nome-usuario {
+    color: #00fcf8;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 30px;
+}
+
+.opcoes-de-conta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.opcoes {
+    background-color: #00fcf8;
+    font-size: 20px;
+    font-weight: 700;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+.opcoes a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* .hamburguer.active {
@@ -209,7 +241,7 @@ body.active {
     height: 3px;
     border-radius: 3px;
     margin: 5px auto;
-    background-color: #00FCF8;
+    background-color: #00fcf8;
     transition: all 0.3s ease-in-out;
 }
 
