@@ -29,6 +29,44 @@ document.addEventListener('DOMContentLoaded', function () {
       c('.main-index .content-product').append(productList);
     });
 
+    // Função para embaralhar um array usando o algoritmo de Fisher-Yates
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    // Crie uma cópia da lista original para a seção content-mostWanted
+    const mostWantedList = [...productsList];
+    shuffleArray(mostWantedList);
+
+    // Mapeie a lista embaralhada e adicione os itens à seção content-mostWanted
+    mostWantedList.map((item, index) => {
+      let productList = c('.models-product').cloneNode(true);
+
+      productList.querySelector('.product-image img').src = item.img;
+      productList.querySelector('.product-name span').innerHTML = item.name;
+      productList.querySelector(
+        '.product-price span',
+      ).innerHTML = `R$ ${item.price}`;
+      productList.querySelector(
+        '.product-price-original span',
+      ).innerHTML = `R$ ${item.price_original}`;
+
+      productList
+        .querySelector('.product-addCart')
+        .addEventListener('click', () => {
+          addToCart(item.name, item.price, item.img);
+        });
+
+      productList
+        .querySelector('.product-card')
+        .setAttribute('data-index', index);
+
+      c('.main-index .content-mostWanted').append(productList);
+    });
+
     function addToCart(productName, productPrice, productImg) {
       // Verifica se o produto já está no carrinho
       if (cartItems[productName]) {
@@ -131,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
         saveCartToLocalStorage();
       });
 
-      document.querySelector('.aside-cart').appendChild(cartItem);
+      document.querySelector('.content-cart').appendChild(cartItem);
 
       updateCartView();
     }
