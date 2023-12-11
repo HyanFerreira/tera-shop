@@ -19,6 +19,23 @@
     background-color: #222A40;
 }
 
+.add-success {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%) translateY(-58px);
+    z-index: 999999999;
+    background-color: #00FCF8;
+    color: #222A40;
+    padding: 15px;
+    font-weight: 500;
+    transition: all .3s;
+}
+
+.add-success.active {
+    transform: translate(-50%) translateY(0);
+}
+
 /* navigation */
 
 .aside-navigation {
@@ -358,6 +375,7 @@ body.active {
     display: flex;
     align-items: center;
     justify-content: center;
+    user-select: none;
 }
 
 .remove,
@@ -541,6 +559,7 @@ body.active {
     cursor: pointer;
     z-index: 9;
     background-color: transparent;
+    padding: 0 15px;
 }
 
 .prevBtnProducts img,
@@ -897,3 +916,15 @@ body.active {
 p {
     margin: 0;
 }
+
+/* @media screen and (min-width: 1440px) {
+    .container-product {
+        width: 1252px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .container-product {
+        width: 1550px;
+    }
+} */

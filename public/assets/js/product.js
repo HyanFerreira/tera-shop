@@ -21,8 +21,7 @@ const productsList = [
   {
     id: 3,
     name: 'Placa Mãe (Intel) ASUS Prime H510M-E DDR4 LGA1200 10° e 11° Geração',
-    description:
-      `Placa Mãe Asus PRIME H510M-A Recursos: <br>
+    description: `Placa Mãe Asus PRIME H510M-A Recursos: <br>
       • Intel LGA 1200 soquete: Pronto para 11th e 10th Gen Intel Processadores <br>
       • Resfriamento abrangente: dissipador de calor VRM, dissipador de calor M.2, dissipador de calor PCH e Fan Xpert 2+ <br>
       • Conectividade ultrarrápida: PCIe 4.0, slot M.2 de 32 Gbps, Ethernet Intel 1 Gb e USB 3.2 Gen 1 <br>
@@ -35,8 +34,7 @@ const productsList = [
   {
     id: 4,
     name: 'SSD Kingston NV1 500GB NVMe M.2 2280 (Leitura até 3500MB/s e Gravação até 2100MB/s)',
-    description:
-      `- Formato: M.2 2280 <br>
+    description: `- Formato: M.2 2280 <br>
       - Interface: PCIe 4.0 x4 NVMe <br>
       - Leitura sequencial: 3500MB/s <br>
       - Gravação sequencial: 2100MB/s <br>
@@ -145,15 +143,14 @@ const productsList = [
     12 meses. (9 meses de garantia contratual junto ao fabricante + 3 meses referentes à garantia legal, nos termos do artigo 26, II, do Código de Defesa do Consumidor).
     
     `,
-    price_original: '1.642,16',
-    price: '2.099,99',
+    price_original: '2.099,99',
+    price: '1.642,16',
     img: './assets/img/products/i7-11700k.png',
   },
   {
     id: 7,
     name: 'SSD M.2 Patriot 2TB 2280 PCIe Gen3 x4 Nvme 1.3 P300 - P300P2TBM28',
-    description:
-      `O P300 é a próxima geração de SSD PCIe Gen3 x4 NVMe intermediário da Patriot, entrando no mercado e oferecendo velocidades de transferência e IOPs 25% maiores do que as soluções PCIe 3 x2 padrão.<br><br>
+    description: `O P300 é a próxima geração de SSD PCIe Gen3 x4 NVMe intermediário da Patriot, entrando no mercado e oferecendo velocidades de transferência e IOPs 25% maiores do que as soluções PCIe 3 x2 padrão.<br><br>
 
       O formato compacto M.2 foi projetado para fácil instalação, compatível com qualquer PC ou laptop, enquanto seu baixo consumo de energia auxilia a prolongar a vida útil do driver, garantindo melhora no tempo de inicialização, carregamento e transferência em relação às unidades de disco rígido tradicionais.<br><br>
       
@@ -161,13 +158,15 @@ const productsList = [
       
       Aumente o desempenho do seu computador com agilidade no carregamento de aplicativos para uma experiência geral e produtiva, enquanto transfere arquivos pesados sem tempo de atraso. A Patriot oferece um dos SSDs com melhor custo-benefício do mercado.
       `,
+    price_original: '999,99',
     price: '799,99',
     img: './assets/img/products/ssd2tb.png',
   },
   {
     id: 8,
-    name: 'Monitor Gamer 24" AOC Viper 165Hz, Full HD, 1ms, sRGB, HDMI/DisplayPort/VGA',
-    description: `Velocidade<br>
+    name: 'Monitor Gamer 24 AOC Viper 165Hz, Full HD, 1ms, sRGB, HDMI/DisplayPort/VGA',
+    description: `
+    Velocidade<br>
     Com o monitor Viper 24 seus movimentos serão ainda mais incríveis e sua experiência de jogo muito mais confortável. Tudo isso graças à tela de 24", recursos que reduzem a fadiga ocular e desempenho ultrarrápido de 165Hz e 1ms.<br><br>
     
     Taxa de Atualização de 165Hz<br>
@@ -226,8 +225,8 @@ const productsList = [
     Peso com suporte: 4,62 kg<br>
     Peso sem suporte: 3,75 kg
     `,
-    price_original: '986,06',
-    price: '1.049,00',
+    price_original: '1.049,99',
+    price: '949,99',
     img: './assets/img/products/monitor-gamer-aoc.png',
   },
 ];

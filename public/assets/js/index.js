@@ -68,11 +68,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function addToCart(productName, productPrice, productImg) {
+      const addSuccess = document.querySelector('.add-success');
+
       // Verifica se o produto já está no carrinho
       if (cartItems[productName]) {
         // Se sim, incrementa a quantidade
         cartItems[productName].quantity += 1;
         updateCartItem(productName);
+
+        addSuccess.classList.toggle('active');
+        setTimeout(function () {
+          addSuccess.classList.remove('active');
+        }, 3000);
       } else {
         // Se não, adiciona o produto ao carrinho
         cartItems[productName] = {
@@ -80,6 +87,11 @@ document.addEventListener('DOMContentLoaded', function () {
           price: productPrice,
           img: productImg,
         };
+        addSuccess.classList.toggle('active');
+        setTimeout(function () {
+          addSuccess.classList.remove('active');
+        }, 3000);
+
         // Cria o elemento no carrinho
         createCartItem(productName, productPrice, productImg);
       }
